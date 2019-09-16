@@ -1,0 +1,55 @@
+header {
+  background-color: #ccc;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  .headerBar {
+    height: 35px;
+  }
+
+  .hamburguer {
+    float: right;
+    border: solid 1px red;
+    margin-right: 10px;
+    padding: 0 5px;
+    cursor: pointer;
+
+    .bar1, .bar2, .bar3 {
+      width: 30px;
+      height: 4px;
+      background-color: #333;
+      margin: 5px 0;
+      transition: 0.4s;
+    }
+  }
+
+  // Add the 'change' class to each bar to make it animated, turning it into an 'X'
+  .hamburguerClose {
+    .bar1 {
+      -webkit-transform: rotate(-45deg) translate(-5px, 6px);
+      transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .bar2 {opacity: 0;}
+    .bar3 {
+      -webkit-transform: rotate(45deg) translate(-7px, -8px);
+      transform: rotate(45deg) translate(-7px, -8px);
+    }
+  }
+
+  .menu {
+    display: block;
+    background-color: #F4B400;
+  }
+  .menuHidden {
+    display: none;
+  }
+}
+
+
+
+.newsSection {
+  padding-top:50px;
+}

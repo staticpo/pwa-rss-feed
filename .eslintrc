@@ -1,0 +1,23 @@
+{
+  "env": {
+    "jest": true,
+    "es6": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2017,
+    "sourceType": "module",
+    "ecmaFeatures": {
+        "jsx": true
+    }
+  },
+  "rules": {
+    "import/no-extraneous-dependencies": ["off", { "devDependencies": true }],
+    "no-unused-expressions": "off",
+    "global-require": "off",
+    "no-underscore-dangle": "off"
+  },
+  "plugins": [
+    "wdio"
+  ],
+  "extends": "plugin:wdio/recommended"
+}

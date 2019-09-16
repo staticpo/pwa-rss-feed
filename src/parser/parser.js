@@ -4,14 +4,13 @@ const Parser = require('rss-parser');
 let parser = new Parser();
 
 const parseURL = async () => {
-    console.log('HI');
-    let feed = await parser.parseURL(CORS_PROXY + REDDIT_FEED);
-    console.log(feed.title);
+  const feedArray = [];
+  feedArray.push(await parser.parseURL(CORS_PROXY + CFB_FEED));
+  feedArray.push(await parser.parseURL(CORS_PROXY + REDDIT_FEED));
 
-    feed.items.forEach(item => {
-        console.log(item.title + ':' + item.link)
-    });
+  console.log(feedArray[0]);
 
+  return feedArray;
 };
 
 export default parseURL;

@@ -1,12 +1,14 @@
 import React from 'react';
-import './App.css';
-
-import parser from './parser/parser';
+import './App.scss';
+import News from './components/news/News';
+import Header from './components/header';
 
 function App() {
-  parser();
   return (
-    <div></div>
+    <div>
+      <Header />
+      <News />
+    </div>
   );
 }
 
