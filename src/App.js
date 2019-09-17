@@ -1,13 +1,11 @@
 import React from 'react';
 import './App.scss';
-import News from './components/news/News';
-import Header from './components/header';
+import Home from './components/home';
 
 function App() {
   return (
     <div>
-      <Header />
-      <News />
+      <Home />
     </div>
   );
 }

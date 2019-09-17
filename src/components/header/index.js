@@ -3,31 +3,32 @@ import React from 'react';
 class HeaderComponent extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-        open: false
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    this.setState({open: !this.state.open});
   }
 
   render() {
+    const {
+      settingsHandler, menuHandler, headerHandler,
+      settingsShown, menuShown, headerShown
+    } = this.props;
+
+    let showHeader = headerShown ? 'block' : 'none';
+
     return (
-      <header>
+      <header style={{display: showHeader}}>
         <div className="headerBar">
-          PWA RSS FEED
-          <div className={`hamburguer ${this.state.open && 'hamburguerClose'}`} onClick={this.handleClick}>
+          <div className="headerLogo">PWA RSS FEED</div>
+          <div className={`hamburguer ${menuShown && 'hamburguerClose'}`} onClick={menuHandler}>
             <div className="bar1"></div>
             <div className="bar2"></div>
             <div className="bar3"></div>
           </div>
         </div>
-        <div className={`menu ${!this.state.open && 'menuHidden'}`}>
-          SOMETHING
+        <div className={`menu ${!menuShown && 'menuHidden'}`}>
+          <button onClick={settingsHandler}>
+            Settings
+          </button>
           <br />
-          SOMETHING
+          <button>Something</button>
         </div>
       </header>
     );

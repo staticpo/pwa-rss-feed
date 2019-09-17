@@ -8,14 +8,17 @@ header {
 
   .headerBar {
     height: 35px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: start;
   }
 
   .hamburguer {
-    float: right;
     border: solid 1px red;
-    margin-right: 10px;
-    padding: 0 5px;
     cursor: pointer;
+    padding: 0 5px;
+    width: 30px;
+    justify-self: end;
 
     .bar1, .bar2, .bar3 {
       width: 30px;
@@ -52,4 +55,16 @@ header {
 
 .newsSection {
   padding-top:50px;
+  overflow: hidden;
+}
+
+.settings {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+  background-color: red;
 }
