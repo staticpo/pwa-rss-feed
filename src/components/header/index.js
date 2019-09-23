@@ -7,8 +7,11 @@ class HeaderComponent extends React.Component {
 
   render() {
     const {
-      settingsHandler, menuHandler, headerHandler,
-      settingsShown, menuShown, headerShown
+      settingsHandler,
+      aboutHandler,
+      menuHandler,
+      menuShown,
+      headerShown
     } = this.props;
 
     let showHeader = headerShown ? 'block' : 'none';
@@ -28,7 +31,7 @@ class HeaderComponent extends React.Component {
             Settings
           </button>
           <br />
-          <button>Something</button>
+          <button onClick={aboutHandler}>About</button>
         </div>
       </header>
     );

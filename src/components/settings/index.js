@@ -12,7 +12,7 @@ class SettingsComponent extends React.Component {
     return (
       <div className="settings" style={{display:displayValue}}>
         <p>ASDQWE</p>
-        <button onClick={this.props.settingsHandler}>CLOSE</button>
+        <button onClick={this.props.closeHandler}>CLOSE</button>
       </div>
     );
   }

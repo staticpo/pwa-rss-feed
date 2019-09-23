@@ -1,5 +1,4 @@
 header {
-  background-color: #ccc;
   position: fixed;
   top: 0;
   left: 0;
@@ -7,14 +6,20 @@ header {
   width: 100%;
 
   .headerBar {
+    background-color: #000;
+    color: #FFF;
     height: 35px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-items: start;
+    align-items: center;
+
+    .headerLogo {
+      padding-left: 10px;
+    }
   }
 
   .hamburguer {
-    border: solid 1px red;
     cursor: pointer;
     padding: 0 5px;
     width: 30px;
@@ -23,7 +28,7 @@ header {
     .bar1, .bar2, .bar3 {
       width: 30px;
       height: 4px;
-      background-color: #333;
+      background-color: #DDD;
       margin: 5px 0;
       transition: 0.4s;
     }
@@ -44,7 +49,17 @@ header {
 
   .menu {
     display: block;
-    background-color: #F4B400;
+    background-color: #DDD;
+
+    button {
+      border: none;
+      padding: 10px 0;
+      border-bottom: solid 1px #000;
+      background-color: transparent;
+      width: 100%;
+      font-size: 20px;
+    }
+
   }
   .menuHidden {
     display: none;
@@ -64,7 +79,17 @@ header {
   right: 0;
   left: 0;
   bottom: 0;
-  height: 100%;
-  width: 100%;
-  background-color: red;
+  background-color: #d4e3ca;
+  padding: 40px;
+}
+
+.about {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: #e4cbf5;
+  /* background-color: #F4B400; */
+  padding: 40px;
 }
