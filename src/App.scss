@@ -69,8 +69,26 @@ header {
 
 
 .newsSection {
-  padding-top:50px;
+  padding-top:35px;
   overflow: hidden;
+
+  .news_item_component {
+    text-decoration: none;
+    color:#1A1A1A;
+
+    .news_item_container {
+      padding: 20px 10px 20px 10px;
+      border-bottom: 1px solid #ddd;
+    }
+    h1 {
+      font-size: 17px;
+      font-family: 'Georgia, serif';
+      color: #1A1A1A;
+    }
+    .news_item_content {
+      font-size: 12px;
+    }
+  }
 }
 
 .settings {

@@ -15,6 +15,11 @@ class NewsComponent extends React.Component {
         const newitems = [];
 
         feeds.forEach((e) => {
+          e.items.map(obj => {
+            // add the website's bgcolor for each item
+            obj.bgColor = e.bgColor;
+          });
+
           newitems.push(...e.items);
         });
 
@@ -30,7 +35,7 @@ class NewsComponent extends React.Component {
       return (
           <div className="newsSection">
               {this.state.news.map(item => (
-                  <NewsItemComponent key={item.title} title={item.title} desc={item.contentSnippet} url={item.link} />
+                  <NewsItemComponent key={item.title} title={item.title} desc={item.contentSnippet} url={item.link} bgColor={item.bgColor} />
               ))}
           </div>
       );
