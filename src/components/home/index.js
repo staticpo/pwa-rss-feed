@@ -1,4 +1,5 @@
 import React from 'react';
+import getConfig from '../../config/'
 import News from '../news/';
 import Header from '../header/';
 import Settings from '../settings/';
@@ -18,6 +19,10 @@ class HomeComponent extends React.Component {
     this.closeScreens = this.closeScreens.bind(this);
     this.toggleMenu = this.toggleMenu.bind(this);
     this.toggleHeader = this.toggleHeader.bind(this);
+  }
+
+  componentDidMount() {
+    getConfig();
   }
 
   toggleSettings() {

@@ -66,11 +66,21 @@ header {
   }
 }
 
-
-
 .newsSection {
   padding-top:35px;
   overflow: hidden;
+
+  .news_separator_component {
+    text-decoration: none;
+    color:#1A1A1A;
+
+    .news_separator_container {
+      display: flex;
+
+      .news_separator_image { background-color: red; }
+      .news_separator_title { background-color: blue; }
+    }
+  }
 
   .news_item_component {
     text-decoration: none;
