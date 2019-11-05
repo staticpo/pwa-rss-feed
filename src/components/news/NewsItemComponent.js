@@ -1,19 +1,19 @@
 import React from 'react';
 
 const NewsItemComponent = (props) => {
-  const {type, title, url, desc, bgColor} = props;
+  const {type, title, url, desc, bgColor, imgUrl} = props;
 
   if(type === 'separator') {
-    return separator(title, url, desc, bgColor);
+    return separator(title, url, desc, bgColor, imgUrl);
   } else {
-    return item(title, url, desc, bgColor);
+    return item(title, url, desc, bgColor, imgUrl);
   }
 };
 
-const item = (title, url, desc, bgColor) => {
+const item = (title, url, desc, bgColor, imgUrl) => {
   return (
     <a className="news_item_component" target="_blank" href={url}>
-      <div className="news_item_container" style={{ backgroundColor: bgColor}}>
+      <div className="news_item_container" style={{ backgroundColor: bgColor, backgroundImage: `url(${imgUrl})`}}>
         { title &&
           <h1>{title.toString()}</h1>
         }
@@ -26,7 +26,7 @@ const item = (title, url, desc, bgColor) => {
   );
 };
 
-const separator = (title, url, bgColor, imgUrl) => {
+const separator = (title, url, desc, bgColor, imgUrl) => {
   return (
     <a className="news_separator_component" target="_blank" href={url}>
       <div className="news_separator_container" style={{ backgroundColor: bgColor}}>

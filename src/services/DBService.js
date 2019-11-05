@@ -32,13 +32,16 @@ const idbKeyval = {
    * ]
    */
   async getFeeds1() {
+    console.info("API REQUEST");
     return (await dbPromise).get(DATABASE_OS, RSS_FIELD_NAME);
   },
   async getFeeds() {
+    console.info("API REQUEST");
     return [
       {name: 'CFB', url: 'http://www.channelfireball.com/feed/', bgColor: '#32a852'},
       {name: 'SCG', url: 'http://www.starcitygames.com/rss/'},
       {name: 'Reddit', url: 'https://www.reddit.com/.rss'},
+      {name: 'ESPN', url: 'https://www.espn.com/espn/rss/news'},
     ];
   },
   async setFeeds(val) {

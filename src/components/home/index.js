@@ -4,6 +4,7 @@ import News from '../news/';
 import Header from '../header/';
 import Settings from '../settings/';
 import About from '../about/';
+import { getFeedsData, getParsedDataForNews, pruneFeeds } from '../../parser/parser';
 
 class HomeComponent extends React.Component {
   constructor(props) {
@@ -13,6 +14,8 @@ class HomeComponent extends React.Component {
         showAbout: false,
         showMenu: false,
         showHeader: true,
+        news: [],
+        feeds: [],
     };
     this.toggleSettings = this.toggleSettings.bind(this);
     this.toggleAbout = this.toggleAbout.bind(this);
@@ -23,6 +26,19 @@ class HomeComponent extends React.Component {
 
   componentDidMount() {
     getConfig();
+
+    getFeedsData
+        .then((feeds) => {
+          this.setState((state) => {
+              return ({
+                  news: [ ...state.news, ...getParsedDataForNews(feeds) ],
+                  feeds: [ ...pruneFeeds(feeds) ],
+              });
+          })
+        })
+        .catch((err) => {
+          console.log(err);
+        });
   }
 
   toggleSettings() {
@@ -54,7 +70,7 @@ class HomeComponent extends React.Component {
   render() {
     return (
       <div>
-        <Settings visible={this.state.showSettings} closeHandler={this.closeScreens} />
+        <Settings feeds={this.state.feeds} visible={this.state.showSettings} closeHandler={this.closeScreens} />
         <About visible={this.state.showAbout} closeHandler={this.closeScreens} />
         <Header
           settingsHandler={this.toggleSettings}
@@ -63,7 +79,7 @@ class HomeComponent extends React.Component {
           menuShown={this.state.showMenu}
           headerShown={this.state.showHeader}
         />
-        <News />
+        <News news={this.state.news} />
       </div>
     );
   }
