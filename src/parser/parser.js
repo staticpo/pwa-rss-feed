@@ -1,6 +1,6 @@
 import { CORS_PROXY, DEFAULT_BG_COLOR } from '../constants/constants';
 import Service from '../services/DBService';
-import { getErrorNewsObject, getSeparatorNewsObject } from '../utils';
+import { getErrorNewsObject, getSeparatorNewsObject, getErrorFeedItem } from '../utils';
 
 const Parser = require('rss-parser');
 let parser = new Parser({
@@ -26,10 +26,16 @@ export const getFeedsData = new Promise((resolve, reject) => {
       let promises = [];
 
       result.forEach((feed) => {
-        promises.push(parser.parseURL(CORS_PROXY + feed.url).then((parsedFeed)=> {
-          parsedFeed.bgColor = feed.bgColor || DEFAULT_BG_COLOR;
-          return parsedFeed;
-        }));
+        promises.push(
+          parser.parseURL(CORS_PROXY + feed.url)
+          .then((parsedFeed)=> {
+            parsedFeed.bgColor = feed.bgColor || DEFAULT_BG_COLOR;
+            return parsedFeed;
+          })
+          .catch((err) => {
+            return getErrorFeedItem(feed.name, err.message, feed.url);
+          })
+        );
       });
 
       Promise.all(promises).then((values) => {

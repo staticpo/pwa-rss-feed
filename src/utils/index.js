@@ -13,3 +13,16 @@ export const getSeparatorNewsObject = (title, imgUrl) => {
     imgUrl: imgUrl || '',
   };
 };
+
+export const getErrorFeedItem = (title, message, details) => {
+  return {
+    bgColor: "#FFBABA",
+    content: 'There was an error getting news from this feed.',
+    contentSnippet: '',
+    id: "error",
+    link: "#",
+    title: title ? title : 'Error getting info from this feed',
+    type: "item",
+    items: [getErrorNewsObject(message, details)],
+  };
+};
