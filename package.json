@@ -137,6 +137,6 @@
     "eslint-plugin-react": "7.14.3",
     "eslint-plugin-react-hooks": "^2.0.1",
     "eslint-plugin-wdio": "^5.12.1",
-    "stylelint": "^11.0.0"
+    "stylelint": "^14.13.0"
   }
 }
